@@ -1,13 +1,11 @@
 #ifndef RECEITA_H_INCLUDED
 #define RECEITA_H_INCLUDED
 #define MAX 10
-struct Receita {
-	elementos[MAX];
-};
+#define IND 100
 
 typedef struct Receita TReceita;
 
-void navegar_receitas();
+void navegar_receitas(Receita* atual, char letra);
 
 void marcar_receitas();
 
