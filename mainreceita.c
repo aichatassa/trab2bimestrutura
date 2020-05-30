@@ -1,13 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 #include "receita.h"
 
 int main() {
 	
 	TReceita* atual = NULL;
 	TReceita* primeiro = NULL;
-	bool marcada = true;
 	char menu;
 	
 	do{
@@ -33,7 +31,7 @@ int main() {
 				break;
 				
 			case '*':
-				marcar_receitas(atual, marcada);
+				marcar_receitas(atual, 0);
 				break;
 				
 			case 'a':
@@ -44,8 +42,8 @@ int main() {
 				break;
 				
 			case '+':
-				inserir_receitas(&primeiro);
-				atual = primeiro;
+				//inserir_receitas(&primeiro);
+				//atual = primeiro;
 				break;
 				
 			case 's':

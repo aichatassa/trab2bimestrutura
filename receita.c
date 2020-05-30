@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 #include "receita.h"
 
 struct Receita {
@@ -10,11 +9,11 @@ struct Receita {
     char modo[IND];
     char criador[IND];
     int nota;
-    int vezes = 0;
+    int vezes;
     struct Receita *proximo;
     struct Receita *anterior;
-    bool marcada = false;
-    bool apagada = false;
+    int marcada;
+    int apagada;
 };
 
 int navegar_receitas(TReceita* atual, char letra) {
@@ -30,22 +29,22 @@ int navegar_receitas(TReceita* atual, char letra) {
 	}
 }
 
-void marcar_receitas(TReceita* atual, bool marcada) {
+void marcar_receitas(TReceita* atual, int marcada) {
 	TReceita* marcou;
-	marcada = true;
-	if(marcada == true) {
+	marcada = 1;
+	if(marcada == 1) {
 		printf("\nReceita marcada com sucesso!\n");
 		marcou->vezes++;
 	}	
 }
 
-void alterar_receitas() {
+//void alterar_receitas() {
 	
-}
+//}
 
 void excluir_receitas(TReceita* atual){
 	int opcao;
-	bool excluir;
+	int excluir;
 
 	do {
 		printf("Deseja mesmo excluir a receita?\n");
@@ -54,12 +53,12 @@ void excluir_receitas(TReceita* atual){
 		scanf("%d", &opcao);
 	
 		if(opcao == 1) {
-			excluir->apagada = true;
+			excluir->apagada = 1;
 			printf("Receita apagada com sucesso!\n");
 		}
 		
 		if else(opcao == 2) {
-			excluir->apagada = false;
+			excluir->apagada = 0;
 			printf("Receita nao foi apagada!\n");
 		}
 		
@@ -70,7 +69,7 @@ void excluir_receitas(TReceita* atual){
 	
 }
 
-void inserir_receitas() {
+/*void inserir_receitas() {
 	
 	
 }
@@ -102,4 +101,4 @@ TReceita* nova_receita() { //?
 	printf("Quantidade de vezes que fez a receita: %d\n");
 	scanf("%d", &vetor[IND].vezes);
 	gets(aux->vezes);
-}
+}*/

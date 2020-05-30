@@ -7,12 +7,12 @@ typedef struct Receita TReceita;
 
 int navegar_receitas(TReceita* atual, char letra);
 
-void marcar_receitas(TReceita* atual, bool marcada);
+void marcar_receitas(TReceita* atual, int marcada);
 
-void alterar_receitas();
+//void alterar_receitas();
 
 void excluir_receitas(TReceita* atual);
 
-void inserir_receitas();
+//void inserir_receitas();
 
 #endif
