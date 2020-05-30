@@ -57,7 +57,7 @@ void excluir_receitas(TReceita* atual){
 			printf("Receita apagada com sucesso!\n");
 		}
 		
-		if else(opcao == 2) {
+		else if(opcao == 2) {
 			excluir->apagada = 0;
 			printf("Receita nao foi apagada!\n");
 		}
