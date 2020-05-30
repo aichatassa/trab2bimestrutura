@@ -31,12 +31,14 @@ int main() {
 				break;
 				
 			case '*':
+				marcar_receitas(atual, true);
 				break;
 				
 			case 'a':
 				break;
 				
 			case '!':
+				excluir_receitas(atual);
 				break;
 				
 			case '+':

@@ -5,13 +5,13 @@
 
 typedef struct Receita TReceita;
 
-void navegar_receitas(Receita* atual, char letra);
+void navegar_receitas(TReceita* atual, char letra);
 
-void marcar_receitas();
+void marcar_receitas(TReceita* atual, bool marcada);
 
 void alterar_receitas();
 
-void excluir_receitas();
+void excluir_receitas(TReceita* atual);
 
 void inserir_receitas();
 

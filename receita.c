@@ -9,12 +9,14 @@ struct Receita {
     char modo[IND];
     char criador[IND];
     int nota;
-    int vezes;
+    int vezes = 0;
     struct Receita *proximo;
     struct Receita *anterior;
+    bool marcada = false;
+    bool apagada = false;
 };
 
-void navegar_receitas(Receita* atual, char letra) {
+void navegar_receitas(TReceita* atual, char letra) {
 	if(letra == '<') {
 		return atual->anterior;
 	}
@@ -27,46 +29,75 @@ void navegar_receitas(Receita* atual, char letra) {
 	}
 }
 
-void marcar_receitas() {
-	
+void marcar_receitas(TReceita* atual, bool marcada) {
+	TReceita* marcou;
+	if(marcada == true) {
+		printf("\nReceita marcada com sucesso!\n");
+		marcou->vezes++;
+	}	
 }
 
 void alterar_receitas() {
 	
 }
 
-void excluir_receitas() {
+void excluir_receitas(TReceita* atual){
+	int opcao;
+	bool excluir;
+
+	do {
+		printf("Deseja mesmo excluir a receita?\n");
+		printf("1. Sim\n");
+		printf("2. Nao\n");
+		scanf("%d", &opcao);
+	
+		if(opcao == 1) {
+			excluir->apagada = true;
+			printf("Receita apagada com sucesso!\n");
+		}
+		
+		if else(opcao == 2) {
+			excluir->apagada = false;
+			printf("Receita nao foi apagada!\n");
+		}
+		
+		else {
+			printf("Selecione uma opcao valida!\n");
+		}
+	}while(opcao != 1 || opcao != 2);
 	
 }
 
 void inserir_receitas() {
+	
 	
 }
 
 TReceita* nova_receita() { //?
 	TReceita* aux = malloc(sizeof(TReceita));
 	
+	
 	printf("Titulo da receita:%s\n");
-	//fgets(vetor[tam].titulo, IND-1, stdin);
+	fgets(vetor[IND].titulo, IND-1, stdin);
 	gets(aux->nome);
 	
 	printf("Tempo da receita:%s\n");
-	//fgets(vetor[tam].tempo, IND-1, stdin);
+	fgets(vetor[IND].tempo, IND-1, stdin);
 	gets(aux->tempo);
 	
 	printf("Ingredientes da receita:%s\n");
-	//fgets(vetor[tam].ingredientes, IND-1, stdin);
+	fgets(vetor[IND].ingredientes, IND-1, stdin);
 	gets(aux->ingredientes);
 	
 	printf("Modo da receita:%s\n");
-	//fgets(vetor[tam].modo, IND-1, stdin);
+	fgets(vetor[IND].modo, IND-1, stdin);
 	gets(aux->modo);
 	
 	printf("Criador da receita:%s\n");
-	//fgets(vetor[tam].criador, IND-1, stdin);
+	fgets(vetor[IND].criador, IND-1, stdin);
 	gets(aux->criador);
 	
 	printf("Quantidade de vezes que fez a receita: %d\n");
-	//scanf("%d", &vetor[tam].vezes);
+	scanf("%d", &vetor[IND].vezes);
 	gets(aux->vezes);
 }
