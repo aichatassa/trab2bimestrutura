@@ -5,7 +5,7 @@
 
 typedef struct Receita TReceita;
 
-void navegar_receitas(TReceita* atual, char letra);
+int navegar_receitas(TReceita* atual, char letra);
 
 void marcar_receitas(TReceita* atual, bool marcada);
 

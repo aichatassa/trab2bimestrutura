@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 #include "receita.h"
 
 struct Receita {
@@ -16,7 +17,7 @@ struct Receita {
     bool apagada = false;
 };
 
-void navegar_receitas(TReceita* atual, char letra) {
+int navegar_receitas(TReceita* atual, char letra) {
 	if(letra == '<') {
 		return atual->anterior;
 	}
@@ -31,6 +32,7 @@ void navegar_receitas(TReceita* atual, char letra) {
 
 void marcar_receitas(TReceita* atual, bool marcada) {
 	TReceita* marcou;
+	marcada = true;
 	if(marcada == true) {
 		printf("\nReceita marcada com sucesso!\n");
 		marcou->vezes++;
