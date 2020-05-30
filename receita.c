@@ -44,7 +44,7 @@ void marcar_receitas(TReceita* atual, int marcada) {
 
 void excluir_receitas(TReceita* atual){
 	int opcao;
-	int excluir;
+	TReceita* excluir;
 
 	do {
 		printf("Deseja mesmo excluir a receita?\n");
