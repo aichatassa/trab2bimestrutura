@@ -15,4 +15,6 @@ void excluir_receitas(TReceita* atual);
 
 //void inserir_receitas();
 
+//TReceita* nova_receita();
+
 #endif
