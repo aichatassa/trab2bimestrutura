@@ -70,35 +70,29 @@ void excluir_receitas(TReceita* atual){
 }
 
 /*void inserir_receitas() {
-	
+	TReceita* novo;
+	novo = nova_receita();
 	
 }
 
-TReceita* nova_receita() { //?
+TReceita* nova_receita() {
 	TReceita* aux = malloc(sizeof(TReceita));
 	
-	
 	printf("Titulo da receita:%s\n");
-	fgets(vetor[IND].titulo, IND-1, stdin);
-	gets(aux->nome);
+	gets(aux->titulo);
 	
 	printf("Tempo da receita:%s\n");
-	fgets(vetor[IND].tempo, IND-1, stdin);
 	gets(aux->tempo);
 	
 	printf("Ingredientes da receita:%s\n");
-	fgets(vetor[IND].ingredientes, IND-1, stdin);
 	gets(aux->ingredientes);
 	
 	printf("Modo da receita:%s\n");
-	fgets(vetor[IND].modo, IND-1, stdin);
 	gets(aux->modo);
 	
 	printf("Criador da receita:%s\n");
-	fgets(vetor[IND].criador, IND-1, stdin);
 	gets(aux->criador);
 	
 	printf("Quantidade de vezes que fez a receita: %d\n");
-	scanf("%d", &vetor[IND].vezes);
 	gets(aux->vezes);
 }*/
