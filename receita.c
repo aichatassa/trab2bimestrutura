@@ -72,27 +72,50 @@ void excluir_receitas(TReceita* atual){
 /*void inserir_receitas() {
 	TReceita* novo;
 	novo = nova_receita();
+	if(*primeiro == NULL) {
+		*primeiro = novo;
+	}
 	
 }
 
 TReceita* nova_receita() {
 	TReceita* aux = malloc(sizeof(TReceita));
 	
-	printf("Titulo da receita:%s\n");
+	printf("Titulo da receita:\n");
 	gets(aux->titulo);
+	fflush(stdin);
+	aux->anterior = aux;
+	aux->proximo = aux;
 	
-	printf("Tempo da receita:%s\n");
+	printf("Tempo da receita:\n");
 	gets(aux->tempo);
+	fflush(stdin);
+	aux->anterior = aux;
+	aux->proximo = aux;
 	
-	printf("Ingredientes da receita:%s\n");
+	printf("Ingredientes da receita:\n");
 	gets(aux->ingredientes);
+	fflush(stdin);
+	aux->anterior = aux;
+	aux->proximo = aux;
 	
-	printf("Modo da receita:%s\n");
+	printf("Modo da receita:\n");
 	gets(aux->modo);
+	fflush(stdin);
+	aux->anterior = aux;
+	aux->proximo = aux;
 	
-	printf("Criador da receita:%s\n");
+	printf("Criador da receita:\n");
 	gets(aux->criador);
+	fflush(stdin);
+	aux->anterior = aux;
+	aux->proximo = aux;
 	
-	printf("Quantidade de vezes que fez a receita: %d\n");
-	gets(aux->vezes);
+	printf("Quantidade de vezes que fez a receita:\n");
+	scanf("%d",&aux->vezes);
+	fflush(stdin);
+	aux->anterior = aux;
+	aux->proximo = aux;
+	
+	return aux;
 }*/
