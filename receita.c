@@ -43,7 +43,7 @@ void marcar_receitas(TReceita* atual, int marcada) {
 	marcada = 1;
 	if(marcada == 1) {
 		printf("\nReceita marcada com sucesso!\n");
-		marcou->vezes++;
+		atual->vezes++;
 	}	
 }
 
@@ -78,11 +78,36 @@ void excluir_receitas(TReceita* atual){
 	
 }
 
-/*void inserir_receitas() {
+void inserir_receitas() {
 	TReceita* novo;
 	novo = nova_receita();
 	if(*primeiro == NULL) {
 		*primeiro = novo;
+	}
+	void inserir_receitas(TReceita **primeiro) {
+	TReceita* novo;
+	TReceita* auxiliar;
+	novo = nova_receita();
+	
+	auxiliar = *primeiro;
+	
+	if(*primeiro == NULL) {
+		*primeiro = novo;
+	}
+	
+	else {
+		
+		do{
+			if(strcmp(novo->titulo, auxiliar->titulo) > 0){
+				auxiliar->proximo;
+			}
+			else if(strcmp(novo->titulo, auxiliar->titulo) < 0){
+				novo->proximo = *primeiro;
+				(*primeiro)->anterior->proximo = novo;
+				novo->anterior= (*primeiro)->anterior;
+				(*primeiro)->anterior = novo;
+			}	
+		}while(strcmp(novo->titulo, auxiliar->titulo) > 0);
 	}
 	
 }
@@ -127,4 +152,4 @@ TReceita* nova_receita() {
 	aux->proximo = aux;
 	
 	return aux;
-}*/
+}
