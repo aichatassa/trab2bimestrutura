@@ -29,6 +29,15 @@ int navegar_receitas(TReceita* atual, char letra) {
 	}
 }
 
+void listar(TReceita* atual) {
+	printf("Titulo da receita: %s\n", atual->titulo);
+	printf("Tempo da receita: %s\n", atual->tempo);
+	printf("Ingredientes da receita: %s\n", atual->ingredientes);
+	printf("Modo da receita: %s\n", atual->modo);
+	printf("Criador da receita: %s\n", atual->criador);
+	printf("Quantidade de vezes que fez a receita: %d\n", atual->vezes);
+}
+
 void marcar_receitas(TReceita* atual, int marcada) {
 	TReceita* marcou;
 	marcada = 1;
