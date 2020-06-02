@@ -24,10 +24,12 @@ int main() {
 		switch(menu) {
 			case '<':
 				atual = navegar_receitas(atual, menu);
+				listar(atual);
 				break;
 				
 			case '>':
 				atual = navegar_receitas(atual, menu);
+				listar(atual);
 				break;
 				
 			case '*':
