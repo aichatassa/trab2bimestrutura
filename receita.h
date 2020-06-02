@@ -7,6 +7,8 @@ typedef struct Receita TReceita;
 
 int navegar_receitas(TReceita* atual, char letra);
 
+void listar(TReceita* atual);
+
 void marcar_receitas(TReceita* atual, int marcada);
 
 //void alterar_receitas();
