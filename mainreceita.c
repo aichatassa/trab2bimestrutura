@@ -37,6 +37,7 @@ int main() {
 				break;
 				
 			case 'a':
+				alterar_receitas(atual);
 				break;
 				
 			case '!':
