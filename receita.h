@@ -11,12 +11,12 @@ void listar(TReceita* atual);
 
 void marcar_receitas(TReceita* atual, int marcada);
 
-//void alterar_receitas();
+void alterar_receitas(TReceita* atual);
 
 void excluir_receitas(TReceita* atual);
 
-//void inserir_receitas();
+void inserir_receitas(TReceita **primeiro);
 
-//TReceita* nova_receita();
+TReceita* nova_receita();
 
 #endif
