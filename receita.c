@@ -39,7 +39,6 @@ void listar(TReceita* atual) {
 }
 
 void marcar_receitas(TReceita* atual, int marcada) {
-	TReceita* marcou;
 	marcada = 1;
 	if(marcada == 1) {
 		printf("\nReceita marcada com sucesso!\n");
@@ -47,9 +46,26 @@ void marcar_receitas(TReceita* atual, int marcada) {
 	}	
 }
 
-//void alterar_receitas() {
-	
-//}
+void alterar_receitas() {
+	printf("Titulo da receita:\n");
+	gets(atual->titulo);
+	fflush(stdin);
+	printf("Tempo da receita:\n");
+	gets(atual->tempo);
+	fflush(stdin);
+	printf("Ingredientes da receita:\n");
+	gets(atual->ingredientes);
+	fflush(stdin);
+	printf("Modo da receita:\n");
+	gets(atual->modo);
+	fflush(stdin);
+	printf("Criador da receita:\n");
+	gets(atual->criador);
+	fflush(stdin);
+	printf("Quantidade de vezes que fez a receita:\n");
+	scanf("%d",&atual->vezes);
+	fflush(stdin);
+}
 
 void excluir_receitas(TReceita* atual){
 	int opcao;
@@ -78,39 +94,45 @@ void excluir_receitas(TReceita* atual){
 	
 }
 
-void inserir_receitas() {
-	TReceita* novo;
-	novo = nova_receita();
-	if(*primeiro == NULL) {
-		*primeiro = novo;
-	}
-	void inserir_receitas(TReceita **primeiro) {
+void inserir_receitas(TReceita **primeiro) {
 	TReceita* novo;
 	TReceita* auxiliar;
+	TReceita* ultimo;
+	int mudou = 0;
 	novo = nova_receita();
-	
-	auxiliar = *primeiro;
 	
 	if(*primeiro == NULL) {
 		*primeiro = novo;
 	}
 	
 	else {
-		
+		auxiliar = *primeiro;
+		ultimo = (*primeiro)->anterior;
 		do{
-			if(strcmp(novo->titulo, auxiliar->titulo) > 0){
-				auxiliar->proximo;
+			if(strcmp(novo->titulo, auxiliar->titulo) > 0){	
+				if(ultimo == primeiro) { //if((auxiliar->proximo) == ultimo && ultimo == primeiro) {
+					novo->proximo = (*primeiro);
+			    		(*primeiro)->anterior = novo; 
+			 	    	novo->anterior = ultimo; 
+			   		ultimo- = novo;
+					mudou == 1;
+				}
+				else {
+					auxiliar = auxiliar->proximo;
+				}
+				
 			}
 			else if(strcmp(novo->titulo, auxiliar->titulo) < 0){
-				novo->proximo = *primeiro;
-				(*primeiro)->anterior->proximo = novo;
-				novo->anterior= (*primeiro)->anterior;
-				(*primeiro)->anterior = novo;
+				novo->proximo = auxiliar;
+				(auxiliar)->anterior->proximo = novo;
+				novo->anterior= (auxiliar)->anterior;
+				(auxiliar)->anterior = novo;
+				mudou = 1;
 			}	
-		}while(strcmp(novo->titulo, auxiliar->titulo) > 0);
+		}while(mudou!=1);
+		printf("mudou\n");
 	}
-	
-}
+} 
 
 TReceita* nova_receita() {
 	TReceita* aux = malloc(sizeof(TReceita));
