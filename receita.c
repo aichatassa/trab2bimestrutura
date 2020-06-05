@@ -16,7 +16,7 @@ struct Receita {
     int apagada;
 };
 
-int navegar_receitas(TReceita* atual, char letra) {
+TReceita* navegar_receitas(TReceita* atual, char letra) {
 	if(letra == '<') {
 		return atual->anterior;
 	}
@@ -46,7 +46,7 @@ void marcar_receitas(TReceita* atual, int marcada) {
 	}	
 }
 
-void alterar_receitas() {
+void alterar_receitas(TReceita* atual) {
 	printf("Titulo da receita:\n");
 	gets(atual->titulo);
 	fflush(stdin);
@@ -62,9 +62,9 @@ void alterar_receitas() {
 	printf("Criador da receita:\n");
 	gets(atual->criador);
 	fflush(stdin);
-	printf("Quantidade de vezes que fez a receita:\n");
+	/*printf("Quantidade de vezes que fez a receita:\n");
 	scanf("%d",&atual->vezes);
-	fflush(stdin);
+	fflush(stdin);*/
 }
 
 void excluir_receitas(TReceita* atual){
@@ -97,39 +97,41 @@ void excluir_receitas(TReceita* atual){
 void inserir_receitas(TReceita **primeiro) {
 	TReceita* novo;
 	TReceita* auxiliar;
-	TReceita* ultimo;
-	int mudou = 0;
 	novo = nova_receita();
+	auxiliar = (*primeiro);
 	
 	if(*primeiro == NULL) {
 		*primeiro = novo;
 	}
 	
-	else {
-		auxiliar = *primeiro;
-		ultimo = (*primeiro)->anterior;
-		do{
-			if(strcmp(novo->titulo, auxiliar->titulo) > 0){	
-				if(ultimo == primeiro) { //if((auxiliar->proximo) == ultimo && ultimo == primeiro) {
-					novo->proximo = (*primeiro);
-			    		(*primeiro)->anterior = novo; 
-			 	    	novo->anterior = ultimo; 
-			   		ultimo- = novo;
-					mudou == 1;
-				}
-				else {
-					auxiliar = auxiliar->proximo;
-				}
-				
-			}
-			else if(strcmp(novo->titulo, auxiliar->titulo) < 0){
-				novo->proximo = auxiliar;
-				(auxiliar)->anterior->proximo = novo;
-				novo->anterior= (auxiliar)->anterior;
-				(auxiliar)->anterior = novo;
-				mudou = 1;
-			}	
-		}while(mudou!=1);
+	else {	
+		if(strcmp(novo->titulo, (*primeiro)->titulo) < 0) {//compara com o primeiro
+			novo->proximo = *primeiro;
+			(*primeiro)->anterior->proximo = novo;
+			novo->anterior = (*primeiro)->anterior;
+			(*primeiro)->anterior = novo;
+			*primeiro = novo;
+		}
+		else if(strcmp(novo->titulo, (*primeiro)->anterior->titulo) > 0) {//compara com o ultimo
+			novo->proximo = *primeiro;
+			(*primeiro)->anterior->proximo = novo;
+			novo->anterior = (*primeiro)->anterior;
+			(*primeiro)->anterior = novo;
+		}
+		
+		auxiliar = (*primeiro)->proximo;
+		
+		while(strcmp(novo->titulo, auxiliar->titulo) > 0) {
+			auxiliar = auxiliar->proximo;	
+		}
+		if(strcmp(novo->titulo, auxiliar->titulo) < 0) {
+		   	TReceita *pos = auxiliar->anterior;
+			pos->proximo = novo;
+           		 novo->anterior = pos;
+          		 novo->proximo = auxiliar;
+           		 auxiliar->anterior = novo;
+            		printf("funcionou\n");
+		}
 		printf("mudou\n");
 	}
 } 
@@ -167,11 +169,11 @@ TReceita* nova_receita() {
 	aux->anterior = aux;
 	aux->proximo = aux;
 	
-	printf("Quantidade de vezes que fez a receita:\n");
+	/*printf("Quantidade de vezes que fez a receita:\n");
 	scanf("%d",&aux->vezes);
 	fflush(stdin);
 	aux->anterior = aux;
-	aux->proximo = aux;
+	aux->proximo = aux;*/
 	
 	return aux;
 }
