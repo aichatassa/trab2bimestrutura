@@ -45,8 +45,8 @@ int main() {
 				break;
 				
 			case '+':
-				//inserir_receitas(&primeiro);
-				//atual = primeiro;
+				inserir_receitas(&primeiro);
+				atual = primeiro;
 				break;
 				
 			case 's':
