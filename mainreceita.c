@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "receita.h"
 
+
+
 int main() {
 	
 	TReceita* atual = NULL;
